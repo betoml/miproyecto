@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\PlanesController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CapitulosController;
+use App\Http\Controllers\Favoritos_PeliculasController;
+use App\Http\Controllers\Favoritos_SeriesController;
+use App\Http\Controllers\PeliculasController;
+use App\Http\Controllers\SeriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
