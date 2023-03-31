@@ -25,8 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logouts', [AuthController::class, 'logouts']);
-Route::get('usuarios', [AuthController::class, 'index']);
-Route::get('planes', [PlanesController::class, 'index']);
+
+
 
 
 
@@ -40,7 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::post('usuarios-update', [AuthController::class, 'update']);
   Route::post('usuarios-delete', [AuthController::class, 'destroy']);
   Route::post('usuarios-info', [AuthController::class, 'userInfo']);
-
+  Route::get('usuarios', [AuthController::class, 'index']);
 
 
   Route::get('planes', [PlanesController::class, 'index']);
