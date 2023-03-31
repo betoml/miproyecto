@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logouts', [AuthController::class, 'logouts']);
 Route::get('usuarios', [AuthController::class, 'index']);
-
+Route::get('planes', [PlanesController::class, 'index']);
 
 
 
