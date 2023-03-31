@@ -90,7 +90,7 @@ class SeriesController extends Controller
     }
     public function getUltimasSeries()
     {
-        $pelis =  DB::table('series')->where('active', '=', 'true')
+        $pelis =  DB::table('series')->where('active', '=', true)
             ->limit('10')
             ->orderBy('created_at', 'desc')
             ->get();
