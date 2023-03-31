@@ -41,7 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::post('usuarios-delete', [AuthController::class, 'destroy']);
   Route::post('usuarios-info', [AuthController::class, 'userInfo']);
   Route::get('usuarios', [AuthController::class, 'index']);
-  Route::get('usuarios-token', [AuthController::class, 'verificarToken']);
+  Route::post('usuarios-token', [AuthController::class, 'verificarToken']);
 
 
   Route::get('planes', [PlanesController::class, 'index']);
