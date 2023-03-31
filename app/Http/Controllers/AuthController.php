@@ -115,7 +115,9 @@ class AuthController extends Controller
         ->where('id' ,'=', $tkn[0])
         ->get();
 
-        return Auth::user();
+        return response()->json(
+            Auth::user()
+        );
     }
     public function logout(Request $request)
     {
