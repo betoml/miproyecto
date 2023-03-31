@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('capitulos', function (Blueprint $table) {
-            $table->string('episodios');
+            $table->string('episodios')->after('id_thmdb_series');
         });
     }
 

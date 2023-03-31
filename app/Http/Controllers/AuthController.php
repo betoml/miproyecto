@@ -109,6 +109,14 @@ class AuthController extends Controller
         ];
     }
 
+    public function verificarToken(Request $request){
+        $tkn = explode('|', $request->token);
+        DB::table('personal_access_tokens')
+        ->where('id' ,'=', $tkn[0])
+        ->get();
+
+        return Auth::user();
+    }
     public function logout(Request $request)
     {
         /*         DB::table('personal_access_tokens')->where('token', md5($request->token))->delete();
