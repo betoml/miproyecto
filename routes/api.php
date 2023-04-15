@@ -43,6 +43,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::get('usuarios', [AuthController::class, 'index']);
   Route::post('validate-token', function () {
 })->middleware('auth:sanctum');
+  Route::post('password-reset', [AuthController::class, 'createTokenResetPassword']);
 
 
   Route::get('planes', [PlanesController::class, 'index']);
