@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Http;
 use Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Planes;
+use App\Models\Token_reset_passwords;
 use \stdClass;
 
 class AuthController extends Controller
@@ -109,11 +111,12 @@ class AuthController extends Controller
         ];
     }
 
-    public function verificarToken(Request $request){
+    public function verificarToken(Request $request)
+    {
         $tkn = explode('|', $request->token);
         DB::table('personal_access_tokens')
-        ->where('id' ,'=', $tkn[0])
-        ->get();
+            ->where('id', '=', $tkn[0])
+            ->get();
 
         return response()->json(
             Auth::user()
@@ -208,25 +211,25 @@ class AuthController extends Controller
         $token_rand = rand(111111, 999999);
 
         $verificar = DB::table('token_reset_passwords')
-            ->where('id_users', '=', $request->users_id)
+            ->where('id_users', '=', $request->id_users)
 
             ->get();
         $contar = count($verificar);
-     
+
 
         // return $ver->updated_at;
 
         $fechaComparar = date('Y-m-d') . ' 00:00:00';
 
 
- 
-            if ($contar > 0) {
-                $ver = $verificar[0];
-                if ($ver->updated_at == $fechaComparar) {
-                    return response()->json([
-                        'message' => 'Solo puedes pedir una vez por día el token de seguridad.'
-                    ]);
-                } else {
+
+        if ($contar > 0) {
+            $ver = $verificar[0];
+            if ($ver->updated_at == $fechaComparar) {
+                return response()->json([
+                    'message' => 'Solo puedes pedir una vez por día el token de seguridad.'
+                ]);
+            } else {
 
                 DB::table('token_reset_passwords')
                     ->where('id', '=', $ver->id)
@@ -237,22 +240,27 @@ class AuthController extends Controller
 
                     ]);
 
+                $sendiblue = DB::table('settings')
+                    ->where('id', '=', 1)
+                    ->get()
+                    ->json();
 
-
-
+                $usr =   DB::table('users')
+                    ->where('id', '=', $request->id_users)
+                    ->get();
 
                 $send =     Http::withHeaders([
-                    'api-key' => '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',
-                ])->post('https://api.sendinblue.com/v3/smtp/email', [
+                    'api-key' => $sendiblue[0]->token_servicio_email,
+                ])->post($sendiblue[0]->url_servicio_email, [
 
                     'sender' => [
-                        "name" => "Euforia Films",
-                        "email" => "no-reply@euforia.com"
+                        "name" => $sendiblue[0]->sender_name_servicio_email,
+                        "email" => $sendiblue[0]->sender_email_servicio_email
                     ],
                     "to" => [
                         [
-                            "email" => "bmlaudiovisuales@gmail.com",
-                            "name" => "Beto Mendez"
+                            "email" => $usr[0]->email,
+                            "name" => $usr[0]->nombres_users
                         ]
                     ],
                     "htmlContent" => "<!DOCTYPE html><html lang='es'><head> <meta charset='UTF-8'> 
@@ -276,34 +284,43 @@ class AuthController extends Controller
                     'message' => 'Token de seguridad enviado a tu correo electronico'
                 ]);
             }
-            } else {
-                $user = Token_reset_passwords::create([
-                    'id_users' => $request->users_id,
-                    'token' => $token_rand,
-                    'intentos' => 0,
-                    'created_at' => date('Y-m-d'),
-                    'updated_at' => date('Y-m-d')
+        } else {
+
+            /*             $user = Token_reset_passwords::create([
+                'id_users' => $request->id_users,
+                'token' => $token_rand,
+                'intentos' => 0,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d')
 
 
 
-                ]);
+            ]); */
 
 
-                $send =     Http::withHeaders([
-                    'api-key' => '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',
-                ])->post('https://api.sendinblue.com/v3/smtp/email', [
+            $usr =   DB::table('users')
+                ->where('id', '=', $request->id_users)
+                ->get();
 
-                    'sender' => [
-                        "name" => "Euforia Films",
-                        "email" => "no-reply@euforia.com"
-                    ],
-                    "to" => [
-                        [
-                            "email" => "bmlaudiovisuales@gmail.com",
-                            "name" => "Beto Mendez"
-                        ]
-                    ],
-                    "htmlContent" => "<!DOCTYPE html><html lang='es'><head> <meta charset='UTF-8'> 
+            $sendiblue = DB::table('settings')
+                ->where('id', '=', 1)
+                ->get();
+
+            $send =     Http::withHeaders([
+                'api-key' => $sendiblue[0]->token_servicio_email,
+            ])->post($sendiblue[0]->url_servicio_email, [
+
+                'sender' => [
+                    "name" => $sendiblue[0]->sender_name_servicio_email,
+                    "email" => $sendiblue[0]->sender_email_servicio_email
+                ],
+                "to" => [
+                    [
+                        "email" => $usr[0]->email,
+                        "name" => $usr[0]->nombres_users
+                    ]
+                ],
+                "htmlContent" => "<!DOCTYPE html><html lang='es'><head> <meta charset='UTF-8'> 
                 <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, 
                 initial-scale=1.0'> <title>Cambio de contraseña</title></head><body> <table style='width: 100%; background: red; text-align: center;'>
                  <tr > <td> <img style='width: 100%;max-width: 250px;min-width: 50px;padding: 20px;' 
@@ -318,13 +335,14 @@ class AuthController extends Controller
                      </td></tr></table></body></html>",
 
 
-                    "textContent" => "Please confirm your email address ",
-                    "subject" => "Cambio de contraseña"
+                "textContent" => "Please confirm your email address ",
+                "subject" => "Cambio de contraseña"
 
-                ])->json();
-                return response()->json([
-                    'message' => 'Token de seguridad enviado a tu correo electronico'
-                ]);
-            }
+            ])->json();
+
+            return response()->json([
+                'message' => 'Token de seguridad enviado a tu correo electronico'
+            ]);
         }
+    }
 }
