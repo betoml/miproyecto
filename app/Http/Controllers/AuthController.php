@@ -281,12 +281,12 @@ class AuthController extends Controller
                 ])->json();
 
                 return response()->json([
-                    'message' => 'Token de seguridad enviado a tu correo electronico'
+                    'message' => 'Token de seguridad enviado a tu correo electronico.'
                 ]);
             }
         } else {
 
-            /*             $user = Token_reset_passwords::create([
+                   $user = Token_reset_passwords::create([
                 'id_users' => $request->id_users,
                 'token' => $token_rand,
                 'intentos' => 0,
@@ -295,7 +295,7 @@ class AuthController extends Controller
 
 
 
-            ]); */
+            ]);
 
 
             $usr =   DB::table('users')
@@ -341,7 +341,7 @@ class AuthController extends Controller
             ])->json();
 
             return response()->json([
-                'message' => 'Token de seguridad enviado a tu correo electronico'
+                'message' => 'Token de seguridad enviado a tu correo electronico.'
             ]);
         }
     }
