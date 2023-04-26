@@ -14,7 +14,9 @@ class Series extends Model
         'img_thumb_series',
         'img_portada_series',
         'id_thmdb_series' ,
-        'active' 
+        'active',
+        'created_at',
+        'updated_at' 
     ];
 
 

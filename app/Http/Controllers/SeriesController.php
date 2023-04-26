@@ -92,7 +92,7 @@ class SeriesController extends Controller
     {
         $pelis =  DB::table('series')->where('active', '=', true)
             ->limit('10')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->get();
 
 

@@ -16,7 +16,9 @@ class Peliculas extends Model
         'url_1080' ,
         'url_720',
         'url_480',
-        'active'
+        'active',
+        'created_at',
+        'updated_at'
     ];
 
 

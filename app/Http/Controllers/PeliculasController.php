@@ -104,7 +104,7 @@ class PeliculasController extends Controller
     {
         $pelis =  DB::table('peliculas')->where('active', '=', 'true')
             ->limit('10')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->get();
         return $pelis;
     }

@@ -89,16 +89,33 @@ class AuthController extends Controller
                 'user' => $user
             ]);
         } else {
-            $token = $user->createtoken('auth_token')->plainTextToken;
 
-            return response()->json([
-                'code' => 3,
-                'message' => 'Bienvenido ' . $user->name,
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-                'user' => $user,
-                'dispositivos' => $verificar
-            ]);
+
+
+
+
+            $fecha_actual = strtotime(date("d-m-Y ", time()));
+            $fecha_entrada = strtotime($user->vencimiento_plan);
+
+            if ($fecha_actual > $fecha_entrada) {
+                return response()->json([
+                    'code' => 1,
+                    'message' => 'Su plan ha expirado, contrata uno nuevo'
+                ], 401);
+            } else {
+                $token = $user->createtoken('auth_token')->plainTextToken;
+
+                return response()->json([
+                    'code' => 3,
+                    'message' => 'Bienvenido ' . $user->name,
+                    'access_token' => $token,
+                    'token_type' => 'Bearer',
+                    'user' => $user,
+                    'dispositivos' => $verificar
+                ]);
+            }
+
+
         }
     }
 
@@ -108,6 +125,15 @@ class AuthController extends Controller
         DB::table('personal_access_tokens')->where('tokenable_id', $id->id)->delete();
         return [
             'message' => 'Mensaje: Tokens eliminados'
+        ];
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+
+        return [
+            'message' => 'Sesión finalizada.'
         ];
     }
 
@@ -122,20 +148,7 @@ class AuthController extends Controller
             Auth::user()
         );
     }
-    public function logout(Request $request)
-    {
-        /*         DB::table('personal_access_tokens')->where('token', md5($request->token))->delete();
-        return [
-            'message' => 'Mensaje: Tokens eliminados'
-        ]; */
 
-        $numberToken = explode('|', $request->token);
-
-        DB::table('personal_access_tokens')->where('id', $numberToken['0'])->delete();
-        return [
-            'message' => 'Token eliminado, usuario hizo logout'
-        ];
-    }
     public function update(Request $request, user $users)
     {
 
@@ -203,9 +216,6 @@ class AuthController extends Controller
         ];
     }
     public function createTokenResetPassword(Request $request)
-
-
-
     {
 
         $token_rand = rand(111111, 999999);
@@ -217,7 +227,7 @@ class AuthController extends Controller
         $contar = count($verificar);
 
 
-        // return $ver->updated_at;
+
 
         $fechaComparar = date('Y-m-d') . ' 00:00:00';
 
@@ -227,7 +237,7 @@ class AuthController extends Controller
             $ver = $verificar[0];
             if ($ver->updated_at == $fechaComparar) {
                 return response()->json([
-                    'message' => 'Solo puedes pedir una vez por día el token de seguridad.'
+                    'message' => 'Ya hemos enviado el token a tu email. Revisalo, por favor.'
                 ]);
             } else {
 
@@ -286,7 +296,7 @@ class AuthController extends Controller
             }
         } else {
 
-                   $user = Token_reset_passwords::create([
+            $user = Token_reset_passwords::create([
                 'id_users' => $request->id_users,
                 'token' => $token_rand,
                 'intentos' => 0,
@@ -345,4 +355,84 @@ class AuthController extends Controller
             ]);
         }
     }
+    public function verificarTokenResetPass(Request $request)
+    {
+
+        $usr =   DB::table('users')
+            ->where('id', '=', $request->id_users)
+            ->get();
+
+        $verificarToken = DB::table('token_reset_passwords')
+            ->where('id_users', '=', $request->id_users)
+            ->get();
+
+        $validator = Validator::make($request->all(), [
+            'antigua_pass' => 'required|string|max:255|min:8',
+            'nueva_pass' => 'required|string|max:255|min:8',
+            'token' => 'required|max:255|min:6',
+
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Rellena todos los campos correctamente, por favor.']);
+        } else {
+            if ($verificarToken[0]->token == $request->token) {
+
+                if (Hash::check($request->antigua_pass, Auth::user()->password)) {
+                    DB::table('users')
+                        ->where('id', '=', $request->id_users)
+                        ->update([
+                            'password' => Hash::make($request->nueva_pass),
+                            'updated_at' =>  date('Y:m:d h:i:s')
+
+                        ]);
+                    return response()->json(['message' => 'La contraseña se ha cambiado exitosamente.']);
+                } else {
+                    $conteo =  $verificarToken[0]->intentos + 1;
+                    $resta = 5 - $conteo;
+                    $conv = strval($resta);
+
+                    if ($resta === 0) {
+                        return response()->json(['message' => 'Se te acabaron las tentativas, intentalo de nuevo mañana.']);
+                    } else {
+                        DB::table('token_reset_passwords')
+                            ->where('id_users', '=', $request->id_users)
+                            ->update([
+                                'intentos' => $conteo,
+                                'updated_at' =>  date('Y:m:d h:i:s')
+
+                            ]);
+                        return response()->json(['message' => "Contraseña actual no es igual, te queda $conv intentos"]);
+                    }
+                }
+            } else {
+                $conteo =  $verificarToken[0]->intentos + 1;
+                $resta = 5 - $conteo;
+                $conv = strval($resta);
+
+                if ($resta === 0) {
+                    return response()->json(['message' => 'Se te acabaron las tentativas, intentalo de nuevo mañana.']);
+                } else {
+                    DB::table('token_reset_passwords')
+                        ->where('id_users', '=', $request->id_users)
+                        ->update([
+                            'intentos' => $conteo,
+                            'updated_at' =>  date('Y:m:d h:i:s')
+
+                        ]);
+                    return response()->json(['message' => "Tokens no es valido, te queda $conv intentos"]);
+                }
+            }
+        }
+
+
+        //return $verificarToken;
+
+
+    }
+
+
+
+    /*         return response()->json([
+            'message' => $request->id_users
+        ]); */
 }

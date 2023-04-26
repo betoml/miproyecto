@@ -23,7 +23,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Black Adam',
@@ -34,7 +35,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Pantera Negra: Wakanda por siempre',
@@ -45,7 +47,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Llaman a la puerta',
@@ -56,7 +59,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Gato con Botas: El último deseo',
@@ -67,7 +71,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Bodas de Plomo',
@@ -78,7 +83,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Avatar: El camino del agua',
@@ -89,7 +95,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'La elefanta del Mago',
@@ -100,7 +107,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'Pinocho de Guillermo del Toro',
@@ -111,7 +119,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
         DB::table('peliculas')->insert([
             'titulo' => 'JUNG_E',
@@ -122,7 +131,8 @@ class PeliculasSeeder extends Seeder
             'url_720' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'url_480' => 'https://download1486.mediafire.com/ve0nm5mk0d2gyGp4L7911H9Jh3EAt7yNvAlkzncUYH3sgR-CDB8gg82-gwV25Tt-UvNCt1_j6q5ErFnFlLpzFOOIgzZW-Q/6udcu6b0onjnuv5/mucho_de_mi.mp4',
             'active' => 'true',
-
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
         ]);
     }
 }

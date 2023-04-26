@@ -22,7 +22,7 @@ class UserSeed extends Seeder
             'username' => 'betoml',
             'email' => 'betomendez.2011@gmail.com',
             'password' => Hash::make('12345678'),
-            'planes_id' => '1',
+            'planes_id' => '4',
             'vencimiento_plan' => '2023/03/30',
             'admin' => '1',
             'telefonos' => '67985250',
