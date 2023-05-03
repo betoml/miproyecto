@@ -202,12 +202,11 @@ class PeliculasController extends Controller
 
         $image = DB::table('slider_page_principal')
         ->where('id', '=', $elegir_id)
-        ->json()
         ->get()
        ;
 
 
-        return $image->img;
+        return  $image;
 
 
     }
