@@ -190,4 +190,25 @@ class PeliculasController extends Controller
 
         return $result;
     }
+    public function sliderPrincipal()
+    {
+        $images =  DB::table('slider_page_principal')
+            ->get();
+
+        $count = count($images);
+
+        $elegir_id = rand(1, $count);
+
+
+        $image = DB::table('slider_page_principal')
+        ->where('id', '=', $elegir_id)
+        ->json()
+        ->get()
+       ;
+
+
+        return $image->img;
+
+
+    }
 }

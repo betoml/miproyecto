@@ -75,6 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
   Route::post('series-temporadas', [SeriesController::class, 'getTemporadas']);
   Route::post('series-all', [SeriesController::class, 'getSeriesAll']);
   Route::post('series-search', [SeriesController::class, 'search']);
+  Route::post('slider-principal', [PeliculasController::class, 'sliderPrincipal']);
 
   //CAPITULOS
   Route::get('capitulos', [CapitulosController::class, 'index']);
