@@ -205,8 +205,8 @@ class PeliculasController extends Controller
         ->get()
        ;
 
-
-        return  $image;
+       $img = $image[0];
+        return  $img->img;
 
 
     }
