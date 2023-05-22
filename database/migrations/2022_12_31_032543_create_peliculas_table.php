@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('img_thumb');
             $table->string('img_portada');
             $table->string('url_1080');
-            $table->string('url_720');
-            $table->string('url_480');
             $table->string('active');
             $table->timestamps();
         });
