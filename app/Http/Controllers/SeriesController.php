@@ -154,8 +154,7 @@ class SeriesController extends Controller
                 'descripcion' => $tmdb['overview'],
                 'miniatura' => 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'],
                 'url_1080_s' => $capitulosInfo->url_1080_s,
-                'url_720_s' => $capitulosInfo->url_720_s,
-                'url_480_s' => $capitulosInfo->url_480_s,
+
             ];
 
             array_push($array_capitulos, $data_array);

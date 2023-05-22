@@ -13,7 +13,7 @@ class Favoritos_PeliculasController extends Controller
     public function index(Request $request)
     {
         $favoritos = DB::table('favoritos_peliculas')
-            ->where('users_id', '=', '1')
+            ->where('users_id', '=', $request->users_id)
             ->orderBy('id', 'desc')
             ->select('peliculas_id', 'users_id')
             ->get();

@@ -15,30 +15,30 @@ class SeriesSeeder extends Seeder
     public function run()
     {
         DB::table('series')->insert([
-            'titulo' => 'YOU',
-            'id_thmdb_series' => '78191',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/1xO8LLhzohWjU9BoT8PNv8WQ57n.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/tZZxlFkz1rQehh7XZqXUbk13xPX.jpg',
+            'titulo' => 'Gotham Knights',
+            'id_thmdb_series' => '195868',
+            'img_thumb_series' => '5riy7SdIhMhhYcDqeEOICVvXEHS.jpg',
+            'img_portada_series' => 'yv4cVXhdpme7gF9FznEIRnCXaHP.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'Euphoria',
-            'id_thmdb_series' => '85552',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/288q0JefZUuTfqUG2qzPTCZYuAL.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/4rnNs0ukZ7GeJHVZrKNSIrM9Fbi.jpg',
+            'titulo' => 'The Last of Us',
+            'id_thmdb_series' => '100088',
+            'img_thumb_series' => '8HIwg09k89FH7yqoy7loiVfId3U.jpg',
+            'img_portada_series' => 'fLQxjFqJG2UWgMjAcXfQ8EK2aCj.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'La Casa del Dragón',
-            'id_thmdb_series' => '94997',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/goFG8C4gRIfidUzYln5YLstmwGp.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/abZMSJ0xRlTgmarBFEW3giEaraQ.jpg',
+            'titulo' => 'Reina Charlotte: Una historia de Bridgerton',
+            'id_thmdb_series' => '196454',
+            'img_thumb_series' => 'hvjyCO6iuZb54kKvIwJ6IoNndI6.jpg',
+            'img_portada_series' => 'jsBAxXq1vcWBzVv5jVO7pJKKss0.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
@@ -47,79 +47,102 @@ class SeriesSeeder extends Seeder
         DB::table('series')->insert([
             'titulo' => 'La Brea',
             'id_thmdb_series' => '128839',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/wEo5pzSZ3MF4EzNvY2R1OZNX266.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/lygdnltzNQM8Ks6TtPsImou6f3A.jpg',
+            'img_thumb_series' => '8sp9cyIMnh3mS6uZ7myVUvQ0SvR.jpg',
+            'img_portada_series' => 'lygdnltzNQM8Ks6TtPsImou6f3A.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'Soy Georgina',
-            'id_thmdb_series' => '156077',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/fcggR2wH0BVD2VxqQZozX1OzXUJ.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/cLI7E3f2esXgLN9GjcoPJp4fpSB.jpg',
+            'titulo' => 'Obsesión',
+            'id_thmdb_series' => '223313',
+            'img_thumb_series' => 'jFghtFHu70SGQ5V4aqWuolkJgVC.jpg',
+            'img_portada_series' => 'AkEN6vMOF6pCtqp5bpBLihfR1IK.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'Peaky Blinders',
-            'id_thmdb_series' => '60574',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/dYAeYkRqDfQrMGHdY7hrtllSPTu.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/8qPdsHxxJU493XbjeYAXStRo7z.jpg',
+            'titulo' => 'MH370: El avión que desapareció',
+            'id_thmdb_series' => '220499',
+            'img_thumb_series' => 'lVyBjky45Yqay2G3DaN6pkFCaUH.jpg',
+            'img_portada_series' => 'lVyBjky45Yqay2G3DaN6pkFCaUH.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'La Ley de los Audaces',
-            'id_thmdb_series' => '37680',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/6ZDGeUh4i10t3xAI7UncF9P9vZP.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/94f6zJyjWqKPqgTE0C3aRo0TveN.jpg',
+            'titulo' => 'Manes',
+            'id_thmdb_series' => '220663',
+            'img_thumb_series' => 'dk6bH5y7Q7bNYpQ3u5L4NLS1Roq.jpg',
+            'img_portada_series' => 'dk6bH5y7Q7bNYpQ3u5L4NLS1Roq.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'Dejémonos de Vargas',
-            'id_thmdb_series' => '206164',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/d0bthLld2QnL0qAoeSkfDa639pz.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/d0bthLld2QnL0qAoeSkfDa639pz.jpg',
+            'titulo' => 'Demonio de Hijo',
+            'id_thmdb_series' => '195237',
+            'img_thumb_series' => 'vIzje93d5aWK6WA2aHsbctCNLZZ.jpg',
+            'img_portada_series' => 'pZiaoKoBMUSqfkPHb1Ke7MpuGYG.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
 
         ]);
         DB::table('series')->insert([
-            'titulo' => 'Gotham Knights',
-            'id_thmdb_series' => '195868',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/5riy7SdIhMhhYcDqeEOICVvXEHS.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/tZZxlFkz1rQehh7XZqXUbk13xPX.jpg',
+            'titulo' => 'División Palermo',
+            'id_thmdb_series' => '219066',
+            'img_thumb_series' => 'jffhwRp7gdZKiUDelXQSg0jtT76.jpg',
+            'img_portada_series' => 'jffhwRp7gdZKiUDelXQSg0jtT76.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
+
         ]);
         DB::table('series')->insert([
-            'titulo' => 'The Mandalorian',
-            'id_thmdb_series' => '82856',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/mzzZKJ4fvwib8Fty1tv4Vtp9R0b.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/2LibH7EwwQJgEggPjw2QaWfs8Za.jpg',
+            'titulo' => 'La Primera Vez',
+            'id_thmdb_series' => '219063',
+            'img_thumb_series' => '8SB4i4grrqii6ND5plhN5fwSPfA.jpg',
+            'img_portada_series' => 'zRYCzOfpOZzhJ2RxEVfWrphCx1x.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
+
         ]);
         DB::table('series')->insert([
-            'titulo' => 'The Last of Us',
-            'id_thmdb_series' => '82856',
-            'img_thumb_series' => 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/8HIwg09k89FH7yqoy7loiVfId3U.jpg',
-            'img_portada_series' => 'https://image.tmdb.org/t/p/w500/fLQxjFqJG2UWgMjAcXfQ8EK2aCj.jpg',
+            'titulo' => 'Sobreviviendo a los 30s',
+            'id_thmdb_series' => '208793',
+            'img_thumb_series' => '5riy7SdIhMhhYcDqeEOICVvXEHS.jpg',
+            'img_portada_series' => '5riy7SdIhMhhYcDqeEOICVvXEHS.jpg',
             'active' => true,
             'created_at' => date('Y:m:d h:i:s'),
             'updated_at' => date('Y:m:d h:i:s')
+
+        ]);
+        DB::table('series')->insert([
+            'titulo' => 'Red Rose',
+            'id_thmdb_series' => '207878',
+            'img_thumb_series' => 'dqlvfCryp7Tt60THA1epPYXWesu.jpg',
+            'img_portada_series' => 'dqlvfCryp7Tt60THA1epPYXWesu.jpg',
+            'active' => true,
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
+
+        ]);
+        DB::table('series')->insert([
+            'titulo' => 'El Asesino Mediático',
+            'id_thmdb_series' => '158876',
+            'img_thumb_series' => 'wj6pVRz1bVB5YivkVJfA8mTWXpE.jpg',
+            'img_portada_series' => 'wj6pVRz1bVB5YivkVJfA8mTWXpE.jpg',
+            'active' => true,
+            'created_at' => date('Y:m:d h:i:s'),
+            'updated_at' => date('Y:m:d h:i:s')
+
         ]);
     }
 }

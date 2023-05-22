@@ -29,8 +29,7 @@ class PeliculasController extends Controller
                 'img_thumb' => 'required|string|max:255',
                 'img_portada' => 'required|string|max:255',
                 'url_1080' => 'required|string|max:255',
-                'url_720' => 'required|string|max:255',
-                'url_480' => 'required|string|max:255',
+
                 'active' => 'required|string|max:255',
             ]);
 
@@ -63,8 +62,7 @@ class PeliculasController extends Controller
                 'img_thumb' => 'required|string|max:255',
                 'img_portada' => 'required|string|max:255',
                 'url_1080' => 'required|string|max:255',
-                'url_720' => 'required|string|max:255',
-                'url_480' => 'required|string|max:255',
+
                 'active' => 'required|string|max:255',
             ]);
 
@@ -74,8 +72,6 @@ class PeliculasController extends Controller
             $peliculas->img_thumb = $request->img_thumb;
             $peliculas->img_portada = $request->img_portada;
             $peliculas->url_1080 = $request->url_1080;
-            $peliculas->url_720 = $request->url_720;
-            $peliculas->url_480 = $request->url_480;
             $peliculas->active = $request->active;
 
             $peliculas->save();
@@ -145,8 +141,6 @@ class PeliculasController extends Controller
             "genero2" =>   verificarGenero(1, $request->id_thmdb),
             "genero3" =>   verificarGenero(2, $request->id_thmdb),
             "url_1080" => $res->url_1080,
-            "url_720" => $res->url_720,
-            "url_480" => $res->url_480,
         ];
     }
 
