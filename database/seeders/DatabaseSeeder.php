@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             UserSeed::class,
             PeliculasSeeder::class,
             SeriesSeeder::class,
+            TemporadasSeed::class,
+            CapitulosSeed::class
         ]);
     }
 }

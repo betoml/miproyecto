@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('token_reset_password');
+        Schema::dropIfExists('users');
     }
 };

@@ -103,65 +103,70 @@ class SeriesController extends Controller
 
     public function getTemporadasAll(Request $request)
     {
-
-        $temp = explode(' ', $request->temporada);
-        $tempo = $temp[1];
-
-
-        $setIdSerie = DB::table('series')
-            ->select('id')
-            ->where('id_thmdb_series', '=', $request->id_serie_tmdb)
-            ->get();
-
-        $id_serie = $setIdSerie[0];
-
-
-        $setIdTemporadas = DB::table('temporadas')
-            ->select('id')
-            ->where('id_thmdb_series', '=', $id_serie->id)
-            ->where('temporadas', '=', $tempo)
-            ->get();
-        $id_temporada = $setIdTemporadas[0];
-
-
-        $getCapitulos = DB::table('capitulos')
-            ->select('*')
-            ->where('id_temporadas_series', '=', $id_temporada->id)
-            ->get();
-
-
-
-        $getCapitulosCount = count($getCapitulos);
-
-        $array_capitulos = [];
-        for ($i = 0; $i <  $getCapitulosCount; $i++) {
-            $ep = $i + 1;
-
-            $tmdb = Http::get('https://api.themoviedb.org/3/tv/' . $request->id_serie_tmdb . '/season/' . $tempo . '/episode/' . $ep, [
-                'api_key' => '65f1f530ee6ebbc494c9925c8786d9ab',
-                'language' => 'es-mx',
-            ]);
-
-
-            $capitulosInfo = $getCapitulos[$i];
-
-            $data_array = [
-                'id' => $capitulosInfo->id,
-                'id_temporadas_series' => $capitulosInfo->id_temporadas_series,
-                'id_thmdb_series' => $capitulosInfo->id_thmdb_series,
-                'episodios' => $capitulosInfo->episodios,
-                'titulo' => $tmdb['name'],
-                'descripcion' => $tmdb['overview'],
-                'miniatura' => 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'],
-                'url_1080_s' => $capitulosInfo->url_1080_s,
-
-            ];
-
-            array_push($array_capitulos, $data_array);
+        try {
+            $temp = explode(' ', $request->temporada);
+            $tempo = $temp[1];
+    
+    
+            $setIdSerie = DB::table('series')
+                ->select('id')
+                ->where('id_thmdb_series', '=', $request->id_serie_tmdb)
+                ->get();
+    
+            $id_serie = $setIdSerie[0];
+    
+    
+            $setIdTemporadas = DB::table('temporadas')
+                ->select('id')
+                ->where('id_thmdb_series', '=', $id_serie->id)
+                ->where('temporadas', '=', $tempo)
+                ->get();
+            $id_temporada = $setIdTemporadas[0];
+    
+    
+            $getCapitulos = DB::table('capitulos')
+                ->select('*')
+                ->where('id_temporadas_series', '=', $id_temporada->id)
+                ->get();
+    
+    
+    
+            $getCapitulosCount = count($getCapitulos);
+    
+            $array_capitulos = [];
+            for ($i = 0; $i <  $getCapitulosCount; $i++) {
+                $ep = $i + 1;
+    
+                $tmdb = Http::get('https://api.themoviedb.org/3/tv/' . $request->id_serie_tmdb . '/season/' . $tempo . '/episode/' . $ep, [
+                    'api_key' => '65f1f530ee6ebbc494c9925c8786d9ab',
+                    'language' => 'es-mx',
+                ]);
+    
+    
+                $capitulosInfo = $getCapitulos[$i];
+    
+                $data_array = [
+                    'id' => $capitulosInfo->id,
+                    'id_temporadas_series' => $capitulosInfo->id_temporadas_series,
+                    'id_thmdb_series' => $capitulosInfo->id_thmdb_series,
+                    'episodios' => $capitulosInfo->episodios,
+                    'titulo' => $tmdb['name'],
+                    'descripcion' => $tmdb['overview'],
+                    'miniatura' => 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'],
+                    'url_1080_s' => $capitulosInfo->url_1080_s,
+    
+                ];
+    
+                array_push($array_capitulos, $data_array);
+            }
+    
+    
+            return  $array_capitulos;
+        } catch (\Exception $e) {
+            // Manejo de la excepción
+            return response()->json(['error' => 'Ocurrió un error'], 500);
         }
-
-
-        return  $array_capitulos;
+        
     }
 
     public function getTemporadas(Request $request)

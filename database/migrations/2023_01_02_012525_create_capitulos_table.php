@@ -19,9 +19,8 @@ return new class extends Migration
             $table->foreign('id_temporadas_series')->references('id')->on('temporadas');
             $table->unsignedBigInteger('id_thmdb_series');
             $table->foreign('id_thmdb_series')->references('id')->on('series');
+            $table->string('episodios');
             $table->string('url_1080_s');
-            $table->string('url_720_s');
-            $table->string('url_480_s');
             $table->timestamps();
         });
     }

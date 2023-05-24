@@ -20,28 +20,28 @@ class PlanesSeed extends Seeder
             'nombres_planes' => 'Básico',
             'periodos' => '90',
             'precios' => '30',
-            'dispositivos' => '2',
+            'dispositivos' => '3',
             'descripciones' => 'Esto es una descripcion del plan Basico'
         ]);
         DB::table('planes')->insert([
             'nombres_planes' => 'Intermedio',
             'periodos' => '90',
             'precios' => '40',
-            'dispositivos' => '3',
+            'dispositivos' => '4',
             'descripciones' => 'Esto es una descripcion del plan Intermedio'
         ]);
         DB::table('planes')->insert([
             'nombres_planes' => 'Avanzado',
             'periodos' => '90',
             'precios' => '45',
-            'dispositivos' => '4',
+            'dispositivos' => '5',
             'descripciones' => 'Esto es una descripcion del plan Avanzado'
         ]);
         DB::table('planes')->insert([
             'nombres_planes' => 'Familiar',
             'periodos' => '90',
-            'precios' => '55',
-            'dispositivos' => '6',
+            'precios' => '60',
+            'dispositivos' => '8',
             'descripciones' => 'Esto es una descripcion del plan Familiar'
         ]);
 

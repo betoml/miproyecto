@@ -23,7 +23,7 @@ class UserSeed extends Seeder
             'email' => 'betomendez.2011@gmail.com',
             'password' => Hash::make('12345678'),
             'planes_id' => '4',
-            'vencimiento_plan' => '2023/03/30',
+            'vencimiento_plan' => '2023/12/30',
             'admin' => '1',
             'telefonos' => '67985250',
         ]);
@@ -34,7 +34,7 @@ class UserSeed extends Seeder
             'email' => 'test@email.com',
             'password' => Hash::make('12345678'),
             'planes_id' => '2',
-            'vencimiento_plan' => '2023/03/30',
+            'vencimiento_plan' => '2023/12/30',
             'admin' => '0',
             'telefonos' => '67985250',
         ]);
@@ -45,7 +45,7 @@ class UserSeed extends Seeder
             'email' => 'familia@email.com',
             'password' => Hash::make('12345678'),
             'planes_id' => '4',
-            'vencimiento_plan' => '2023/03/30',
+            'vencimiento_plan' => '2023/12/30',
             'admin' => '0',
             'telefonos' => '67985250',
         ]);
