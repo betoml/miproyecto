@@ -164,7 +164,7 @@ class SeriesController extends Controller
             return  $array_capitulos;
         } catch (\Exception $e) {
             // Manejo de la excepción
-            return response()->json(['error' => 'Ocurrió un error'], 500);
+            return response()->json(['error' => $e], 500);
         }
         
     }
