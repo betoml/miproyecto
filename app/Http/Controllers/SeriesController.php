@@ -152,7 +152,7 @@ class SeriesController extends Controller
                     'episodios' => $capitulosInfo->episodios,
                     'titulo' => isset($tmdb['name']) ? $tmdb['name'] : '',
                     'descripcion' => isset($tmdb['overview']) ? $tmdb['overview'] : '',
-                    'miniatura' => isset($tmdb['still_path']) ? 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'] : '',
+                    'miniatura' => isset($tmdb['still_path']) ? 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'] : 'https://euforia-films.up.railway.app/img/miniatura.jpg',
                     'url_1080_s' => $capitulosInfo->url_1080_s,
     
                 ];
