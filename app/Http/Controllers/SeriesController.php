@@ -103,7 +103,7 @@ class SeriesController extends Controller
 
     public function getTemporadasAll(Request $request)
     {
-        try {
+
             $temp = explode(' ', $request->temporada);
             $tempo = $temp[1];
     
@@ -150,9 +150,9 @@ class SeriesController extends Controller
                     'id_temporadas_series' => $capitulosInfo->id_temporadas_series,
                     'id_thmdb_series' => $capitulosInfo->id_thmdb_series,
                     'episodios' => $capitulosInfo->episodios,
-                    'titulo' => $tmdb['name'],
-                    'descripcion' => $tmdb['overview'],
-                    'miniatura' => 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'],
+                    'titulo' => isset($tmdb['name']) ? $tmdb['name'] : '',
+                    'descripcion' => isset($tmdb['overview']) ? $tmdb['overview'] : '',
+                    'miniatura' => isset($tmdb['still_path']) ? 'https://www.themoviedb.org/t/p/w227_and_h127_bestv2/' . $tmdb['still_path'] : '',
                     'url_1080_s' => $capitulosInfo->url_1080_s,
     
                 ];
@@ -161,11 +161,8 @@ class SeriesController extends Controller
             }
     
     
-            return  $array_capitulos;
-        } catch (\Exception $e) {
-            // Manejo de la excepción
-            return response()->json(['error' => $e], 500);
-        }
+       return  $array_capitulos;
+
         
     }
 
