@@ -124,7 +124,7 @@ class AuthController extends Controller
         //auth()->user()->tokens()->delete();
         DB::table('personal_access_tokens')->where('tokenable_id', $id->id)->delete();
         return [
-            'message' => 'Mensaje: Tokens eliminados'
+            'message' => 'Sesiones eliminadas, puedes iniciar sesión nuevamente.'
         ];
     }
 
