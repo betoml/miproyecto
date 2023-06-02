@@ -11,4 +11,3 @@ const mix = require('laravel-mix');
  |
  */
 
-Rou
