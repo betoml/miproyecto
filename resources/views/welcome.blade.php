@@ -15,7 +15,7 @@
 
    @livewireStyles        
   
-    <livewire:login />
+
 
 
 
